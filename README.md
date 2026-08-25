@@ -1,6 +1,6 @@
 # HR Employee Attrition Analytics & Interactive Dashboard
 
-An HR Data Analytics Project using Python, SQL, and Tableau Public
+A HR Data Analytics Project using Python, SQL, and Tableau Public
 
 ---
 
