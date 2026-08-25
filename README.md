@@ -1,6 +1,6 @@
 # HR Employee Attrition Analytics & Interactive Dashboard
 
-An End-to-End HR Data Analytics Project using Python, SQL, and Tableau Public
+An HR Data Analytics Project using Python, SQL, and Tableau Public
 
 ---
 
@@ -8,11 +8,11 @@ An End-to-End HR Data Analytics Project using Python, SQL, and Tableau Public
 
 This project analyzes employee demographic and workplace data to identify key driver factors influencing employee attrition. By combining **Python** for data quality validation, **SQL** for analytical metrics computation, and **Tableau Public** for interactive visualization, this analysis provides actionable HR strategies to reduce turnover and enhance employee retention.
 
-![HR Attrition Dashboard](images/dashboard.png)
+![HR Attrition Dashboard](images/Dashboard.png)
 
 ---
 
-## 📁 Data Source
+## Data Source
 
 * **Dataset**: [IBM HR Analytics Employee Attrition & Performance Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) (Fictional dataset created by IBM Data Scientists)
 * **Scope**: 500 employee records analyzed covering demographics, department classifications, overtime status, and attrition indicators.
