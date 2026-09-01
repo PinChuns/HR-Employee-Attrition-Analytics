@@ -1,25 +1,22 @@
 import pandas as pd
 import sqlite3
 
-# =========================================================
-# 步驟 1：用 Python (Pandas) 讀取原始資料與檢查
-# =========================================================
+# Step1：Use Python (Pandas) Import and check raw data
+
 df = pd.read_csv('hr_employee_attrition.csv')
 
-print("--- 1. 資料前幾筆內容 ---")
+print("--- 1. View data sample ---")
 print(df.head(3))
 
-print("\n--- 2. 檢查是否有缺值 ---")
-print(df.isnull().sum())  # 確認資料品質，沒有缺值才能做後續分析
+print("\n--- 2. Check for missing values ---")
+print(df.isnull().sum())
 
+# Step2：Connect to SQLite and run SQL aggregations.
 
-# =========================================================
-# 步驟 2：載入 SQLite 資料庫，用 SQL 做數據聚合計算
-# =========================================================
 conn = sqlite3.connect(':memory:')
 df.to_sql('hr_data', conn, index=False)
 
-# SQL 查詢 1：計算各部門離職率與平均薪資
+# SQL query1：Calculate attrition rate and average salary
 sql_dept = """
 SELECT 
     Department,
@@ -30,8 +27,7 @@ FROM hr_data
 GROUP BY Department
 ORDER BY attrition_rate_pct DESC;
 """
-
-# SQL 查詢 2：計算常態加班 (OverTime) 對離職率的影響
+# SQL query2：Evaluate the effect of overtime on employee attrition
 sql_overtime = """
 SELECT 
     OverTime,
@@ -41,10 +37,10 @@ FROM hr_data
 GROUP BY OverTime;
 """
 
-print("\n--- 3. SQL 計算結果：各部門離職率與平均薪資 ---")
+print("\n--- 3. SQL result：Departmental Attrition Rate and Average Salary ---")
 dept_result = pd.read_sql_query(sql_dept, conn)
 print(dept_result)
 
-print("\n--- 4. SQL 計算結果：加班對離職率的影響 ---")
+print("\n--- 4. SQL result：The Impact of Overtime on Attrition Rate ---")
 ot_result = pd.read_sql_query(sql_overtime, conn)
 print(ot_result)
